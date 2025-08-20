@@ -1,0 +1,2 @@
+I was written using [fs] module of node.js
+ Mujhe add kiya gaya hain

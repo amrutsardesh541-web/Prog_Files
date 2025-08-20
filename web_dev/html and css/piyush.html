@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Public School</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eaf6ff;
+        }
+        .top {
+            width: auto;
+            height: 100px;
+            background-color: #87CEEB;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .heading h1 {
+            margin: 0;
+            color: white;
+        }
+        .button-group button {
+            margin-left: 10px;
+            padding: 5px 15px;
+            border: none;
+            background-color: #4682B4;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .button-group button:hover {
+            background-color: #315f86;
+        }
+        .button-group a {
+            text-decoration: none;
+            color: white;
+        }
+        .sidebar-left {
+            margin: 0;
+            padding: 20px;
+            width: 15%;
+            background-color: #d0eaff;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            text-align: left;
+        }
+        .sidebar-left ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar-left li {
+            margin: 10px 0;
+        }
+        .sidebar-right {
+            margin-left: 20%;
+            padding: 20px;
+            width: 85%;
+            height: auto;
+            overflow: auto;
+            text-align: justify;
+            background-color: #f4faff;
+            font-family: cursive;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .flex-box {
+            width: 30%;
+            height: 200px;
+            background: linear-gradient(to bottom right, #87CEEB, #4682B4);
+            text-align: center;
+            line-height: 1.5;
+            border-radius: 20px;
+            margin: 10px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .flex-box:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #87CEEB;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        .image {
+            height: 50px;
+            width: 50px;
+        }
+        #butt {
+            background-color: #64b6f9;
+            color: antiquewhite;
+            border: #f4faff; 
+            border-radius: 20px; 
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="heading">
+            <h1>ABC Public School</h1>
+            <img src="school.jpg" class="image" alt="School Logo">
+        </div>
+        <div class="button-group">
+            <button>Home</button>
+            <button><a href="sign_in.html">Sign in</a></button>
+            <button><a href="log_in.html">Log in</a></button>
+        </div>
+    </div>
+    <div class="sidebar-left">
+        <p>Our Official Handles</p>
+        <ul>
+            <li>LinkedIn</li>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>Mobile No: 123456789</li>
+        </ul>
+    </div>
+    <div class="sidebar-right">
+        <div class="flex-box">
+            <h2>About Us</h2>
+            <p>Learn about our mission, vision, and values.</p>
+            
+            <button id="butt"><a href="https://www.youtube.com/watch?v=mIZDZIqdR7Y">Read More</a></button>
+        </div>
+        <div class="flex-box">
+            <h2>Admissions</h2>
+            <p>Explore the admission process for new students.</p>
+            <button id="butt"><a href="https://www.lpu.in/">Now</a></button>
+        </div>
+        <div class="flex-box">
+            <h2>Contact</h2>
+            <p>Get in touch with us for any queries or support.</p>
+            <button id="butt"><a href="https://www.pmindia.gov.in/en/contact-us/">Contact Us</a></button>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 ABC Public School. All rights reserved.</p>
+        <p>Follow us on social media: LinkedIn | Facebook | Instagram</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(140, 181, 241);
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background: rgb(130, 180, 211);
+    padding: 25px 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 80%;
+}
+
+h2 {
+    text-align: center;
+    color: #070000;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #090000;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #060606;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    background-color: #fd8905;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="submit"]:hover {
+    background-color: #0e8a03;
+    box-shadow: 0 20px 100px rgba(23, 7, 246, 0.2);
+    color: #fffefe;
+}
+
+input[type="submit"]::after {
+    content: 'MullaKerala';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+input[type="submit"]:hover::after {
+    opacity: 1;
+}
+
+input[type="submit"]:hover::before {
+    content: '';
+    opacity: 0;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #070707;
+}
+
+.form-footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.f-n, .m-n, .l-n {
+    width: 100%;
+}

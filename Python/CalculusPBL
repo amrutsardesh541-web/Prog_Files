@@ -1,0 +1,59 @@
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+
+def solve_simple_harmonic_motion(omega, x0, t):
+    """
+    Solve the simple harmonic motion differential equation and return position and velocity arrays.
+    
+    Parameters:
+        omega (float): Angular frequency.
+        x0 (list): Initial conditions [initial_position, initial_velocity].
+        t (array): Time points.
+    
+    Returns:
+        position (array): Array containing positions over time.
+        velocity (array): Array containing velocities over time.
+    """
+    def simple_harmonic_motion(x, t, omega):
+        """
+        Function representing the differential equation for simple harmonic motion.
+        dx/dt = v
+        dv/dt = -omega^2 * x
+        """
+        dxdt = x[1]  # velocity
+        dvdt = -omega**2 * x[0]  # acceleration
+        return [dxdt, dvdt]
+
+    # Solve the differential equation
+    sol = odeint(simple_harmonic_motion, x0, t, args=(omega,))
+
+    # Extracting position and velocity from the solution
+    position = sol[:, 0]
+    velocity = sol[:, 1]
+
+    return position, velocity
+
+# User inputs
+omega = float(input("Enter the angular frequency (omega): "))
+initial_position = float(input("Enter the initial position (x0): "))
+initial_velocity = float(input("Enter the initial velocity (v0): "))
+x0 = [initial_position, initial_velocity]
+t_start = float(input("Enter the start time: "))
+t_end = float(input("Enter the end time: "))
+num_points = int(input("Enter the number of time points: "))
+t = np.linspace(t_start, t_end, num_points)
+
+# Solve the differential equation
+position, velocity = solve_simple_harmonic_motion(omega, x0, t)
+
+# Plotting
+plt.figure(figsize=(10, 5))
+plt.plot(t, position, label='Position (x)')
+plt.plot(t, velocity, label='Velocity (v)')
+plt.title('Simple Harmonic Motion')
+plt.xlabel('Time')
+plt.ylabel('Amplitude')
+plt.legend()
+plt.grid(True)
+plt.show()

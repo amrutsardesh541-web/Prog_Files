@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Recorder</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .mic-icon {
+      width: 80px;
+      height: 80px;
+      background: #e74c3c;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .mic-icon:hover {
+      transform: scale(1.1);
+    }
+    .mic-icon svg {
+      width: 50px;
+      height: 50px;
+      fill: #fff;
+    }
+    .recording {
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 30px rgba(231, 76, 60, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="mic-button" class="mic-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0h2a3 3 0 0 0 6 0h2zm-5 7a7 7 0 0 0 7-7h-2a5 5 0 0 1-10 0H5a7 7 0 0 0 7 7zm1 2h-2v3h2v-3z"></path>
+    </svg>
+  </div>
+
+  <script>
+    const micButton = document.getElementById('mic-button');
+    let mediaRecorder;
+    let audioChunks = [];
+
+    micButton.addEventListener('click', async () => {
+      if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+        // Request microphone access
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+
+        // Start recording
+        micButton.classList.add('recording');
+        mediaRecorder.start();
+
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            audioChunks.push(event.data);
+          }
+        };
+
+        mediaRecorder.onstop = async () => {
+          micButton.classList.remove('recording');
+
+          // Convert chunks to a .wav blob
+          const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+          audioChunks = []; // Clear the buffer
+
+          // Send to Flask backend
+          const formData = new FormData();
+          formData.append('audio', audioBlob, 'recording.wav');
+
+          await fetch('http://127.0.0.1:5000/upload', {
+            method: 'POST',
+            body: formData,
+          });
+        };
+      }
+
+      if (mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+h1 {
+    color: white;
+    background-color: black;
+}
+
+h1:hover {
+    color: black;
+    background-color: white;
+}
+
+#heading2 {
+    color: black;
+    background-color: yellow;
+}
+
+.para {
+    color: aqua;
+    background-color: blueviolet;
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    background-color: aquamarine;
+    margin: 5px;
+    text-align: center;
+    border: 2px solid blue;
+
+}

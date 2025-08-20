@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            margin: 0 auto;
+            width: 400px;
+            padding: 1em;
+            border: 2px dashed black;
+            background-color: beige;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: auto;
+        }
+
+        form li + li {
+            margin-top: 1em;
+        }
+
+        label {
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+        }
+
+
+        input, textarea {
+            font: 1em sans-serif;
+            width: 300px;
+            box-sizing: border-box;
+            border: 1px solid;
+        }
+
+        button {
+            padding-left: 93px;
+            color: cadetblue;
+            background-color: black;
+        }
+        button:hover{
+            color: black;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Username">
+            </li>
+            <li>
+                <label for="mail">Email:</label>
+                <input type="email" id="mailid" placeholder="mail id">
+            </li>
+            <li>
+                <label for="msg">Massage:</label>
+                <textarea id="msg" name="message"></textarea>
+            </li>
+            <li class="button">
+                <button>Labdya</button>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

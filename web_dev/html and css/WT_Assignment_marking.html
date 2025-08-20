@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Calculator</title>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+
+    <h2>Student Marks Calculator</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>CIE (10)</th>
+                <th>SCE (20)</th>
+                <th>HA (20)</th>
+                <th>ESE (50)</th>
+                <th>Total (100)</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody id="marksTable">
+            <tr>
+                <td>Artificial Intelligence</td>
+                <td><input type="number" min="0" max="10" class="cie" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="sce" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="ha" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="50" class="ese" oninput="calculateRowTotal(this)"></td>
+                <td class="rowTotal">0</td>
+                <td class="rowGrade">-</td>
+                
+            </tr>
+            <tr>
+                <td>Software Engineering</td>
+                <td><input type="number" min="0" max="10" class="cie" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="sce" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="ha" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="50" class="ese" oninput="calculateRowTotal(this)"></td>
+                <td class="rowTotal">0</td>
+                <td class="rowGrade">-</td>
+                
+            </tr>
+            <tr>
+                <td>Web Technology</td>
+                <td><input type="number" min="0" max="10" class="cie" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="sce" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="ha" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="50" class="ese" oninput="calculateRowTotal(this)"></td>
+                <td class="rowTotal">0</td>
+                <td class="rowGrade">-</td>
+                
+            </tr>
+            <tr>
+                <td>Probability and Statistics</td>
+                <td><input type="number" min="0" max="10" class="cie" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="sce" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="ha" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="50" class="ese" oninput="calculateRowTotal(this)"></td>
+                <td class="rowTotal">0</td>
+                <td class="rowGrade">-</td>
+            </tr>
+            <tr>
+                <td>Introduction to IoT</td>
+                <td><input type="number" min="0" max="10" class="cie" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="sce" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="20" class="ha" oninput="calculateRowTotal(this)"></td>
+                <td><input type="number" min="0" max="50" class="ese" oninput="calculateRowTotal(this)"></td>
+                <td class="rowTotal">0</td>
+                <td class="rowGrade">-</td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="calculateTotal()">Calculate Total & Percentage</button>
+    
+    <h3>Total Marks: <span id="totalMarks">0</span> / 500</h3>
+    <h3>Percentage: <span id="percentage">0</span>%</h3>
+
+    <script src="marking.js"></script>
+</body>
+</html>
